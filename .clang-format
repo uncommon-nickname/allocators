@@ -11,11 +11,6 @@ AlignConsecutiveAssignments:
   AcrossEmptyLines: false
   AcrossComments: false
 
-AlignConsecutiveMacros:
-  Enabled: true
-  AcrossEmptyLines: false
-  AcrossComments: false
-
 AlignArrayOfStructures: Right
 
 AlignConsecutiveBitFields:
