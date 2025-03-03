@@ -7,7 +7,7 @@
 #include <sys/mman.h>
 
 #define UNMAP_SUCCESS 0
-#define MAX_REGION_SIZE_CHUNKS 1024
+#define MIN_REGION_SIZE_CHUNKS 1024
 
 #define MAX(x, y) (((x) > (y)) ? (x) : (y))
 
@@ -57,7 +57,7 @@ void* arena_alloc(Arena* a, size_t size_bytes)
 
     if (a->end == NULL)
     {
-        size_t capacity = MAX(MAX_REGION_SIZE_CHUNKS, size_chunks);
+        size_t capacity = MAX(MIN_REGION_SIZE_CHUNKS, size_chunks);
         Region* region  = region_alloc(capacity);
 
         if (region == NULL)
@@ -79,7 +79,7 @@ void* arena_alloc(Arena* a, size_t size_bytes)
 
     if (curr_region == NULL)
     {
-        size_t capacity = MAX(MAX_REGION_SIZE_CHUNKS, size_chunks);
+        size_t capacity = MAX(MIN_REGION_SIZE_CHUNKS, size_chunks);
         curr_region     = region_alloc(capacity);
 
         if (curr_region == NULL)
